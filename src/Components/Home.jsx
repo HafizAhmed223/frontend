@@ -62,7 +62,7 @@ const Home = () => {
     ];
 
     // localStorage.clear();
-    if (!isAuthenticated) {
+    if (isAuthenticated) {
       const asinRegex = /^[A-Z0-9]{10}$/;
       if (asin !== "") {
         if (asinRegex.test(asin)) {

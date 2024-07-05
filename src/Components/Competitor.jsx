@@ -10,8 +10,6 @@ import {
   FaLightbulb,
   FaChartLine,
   FaBoxOpen,
-  FaUserTie,
-  FaBox,
   FaBalanceScale,
 } from "react-icons/fa";
 
