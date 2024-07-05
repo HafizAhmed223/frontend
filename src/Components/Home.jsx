@@ -51,35 +51,7 @@ const Home = () => {
       authContext.setAuth(false);
     }
   }, [isAuthenticated, authContext]);
-  // const handleLogin = async () => {
-  //   try {
-  //     await loginWithRedirect();
-  //     authContext.setAuth((authContext.auth = isAuthenticated));
-  //     console.log("isAuthenticated on log In =>>", isAuthenticated);
-  //     setTimeout(() => {
-  //       console.log("isAuthenticated on log In =>>", isAuthenticated);
-  //     }, 10000);
-  //   } catch (error) {
-  //     CustomToast({ type: "error", message: "Please try again Logging In!" });
-  //   }
-  // };
-  // useEffect(() => {
-  //   if (isAuthenticated) {
-  //     CustomToast({ type: "success", message: "User Logged In Successfully" });
-  //   }
-  // }, [isAuthenticated]);
 
-  // const handleLogout = async () => {
-  //   try {
-  //     localStorage.clear();
-  //     logout({ returnTo: window.location.origin });
-  //     // console.log("isAuthenticated on log out =>>", isAuthenticated);
-  //   } catch (error) {
-  //     CustomToast({ type: "error", message: "Please try again logging out!" });
-  //   } finally {
-  //     CustomToast({ type: "success", message: "User Logged Out" });
-  //   }
-  // };
   const handleSearch = async () => {
     const keysToRemove = [
       "reviewData",
@@ -90,7 +62,7 @@ const Home = () => {
     ];
 
     // localStorage.clear();
-    if (isAuthenticated) {
+    if (!isAuthenticated) {
       const asinRegex = /^[A-Z0-9]{10}$/;
       if (asin !== "") {
         if (asinRegex.test(asin)) {
@@ -221,16 +193,6 @@ const Home = () => {
             {isLoading ? <ButtonLoader /> : "Log In"}
           </button>
         )}
-        {/* <p className="bg-blue-500 text-white mt-[20px] mr-[10px]">
-          {" "}
-          Auth Value is {authContext.auth === false ? "false" : "true"}
-        </p>
-        <button
-          className="bg-blue-500 text-white mr-[10px]"
-          onClick={() => authContext.setAuth(!authContext.auth)}
-        >
-          Toggle Auth
-        </button> */}
       </div>
     </div>
   );
